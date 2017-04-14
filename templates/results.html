@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+{% block content %}
+
+
+    <h1>Results</h1>
+{#    <p><a href="/logout">Logout</a> </p>#}
+    {#Note, this is a Django style comment#}
+
+    {% for result in results %}
+        <pre class="result"> {{ result }} </pre>
+    {% endfor %}
+
+
+    <script>
+
+      $(document).ready(function() {
+      $("pre").each(function(key, element)
+      {
+            // if element contains 'device detected'
+            if (element.innerHTML.indexOf('Device detected') !== -1)
+            {
+                //console.log(element.innerHTML);
+              $(this).css({'background-color' : 'darkseagreen'});
+            }
+          });
+    });
+
+
+    </script>
+
+
+{% endblock %}

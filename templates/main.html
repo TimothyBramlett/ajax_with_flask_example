@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+{% block content %}
+
+
+<script type=text/javascript>
+  $(function() {
+    $('a#calculate').bind('click', function() {
+        console.log('getting json');
+      $.getJSON($SCRIPT_ROOT + 'ajaxtest', 'hello',function(data)
+      {
+          console.log(data);
+        $("#result").text(data.result);
+          console.log('post result.');
+      });
+      return false;
+    });
+  });
+</script>
+
+
+<h1>AJAX example with Flask</h1>
+<p>Result from server:
+   <span id=result>?</span>
+<p><a href=# id=calculate>Request data from backend</a>
+
+
+
+{% endblock %}
+
+
